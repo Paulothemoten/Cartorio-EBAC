@@ -3,8 +3,6 @@
 #include <locale.h> // biblioteca de alocacoes de texto por regiao
 #include <string.h> // bibliteca de criacao de string
 
-
-
 int registro()// função responsavel por cadastrar usuarios no sistema
 {
 	// Inicio criação de variáveis
@@ -14,6 +12,7 @@ int registro()// função responsavel por cadastrar usuarios no sistema
 	char sobrenome[40];
 	char cargo[40];
 	// Final da criação de variáveis
+	
 	printf(" Digite o cpf a ser cadastrado:");// coletando informações do usuário
 	scanf("%s",cpf);// %s refere-se a strings
 	
@@ -93,9 +92,7 @@ int consulta()
 	system("pause");
 	
 }
-	
 int deletar()
-
 {
 	char cpf[40];
 	printf("Digite o CPF do usuario a ser deletado:");
@@ -110,34 +107,43 @@ int deletar()
 		printf("O usuario nao se encontra no sistema!\n");
 		system("pause");	
 	}
-
-	
-	}
+}
 
 int main()
-{
-	int opcao=0;
-	int x=1; // definindo variaveis(laco)
-	for (x=1;x=1;) // laco infinito. caso queira um laco limitado usar: for(x=1;x=10;x++) 
+	{
+	int opcao=0; // definindo variaveis
+	int x=1;
+	char senhadigitada[]="a";
+	int comparacao;
+	
+	
+	printf(" ### Cartorio da EBAC ###\n\n");
+	printf("Login de administrador!\n\nDigite sua senha:");
+	scanf("%s",senhadigitada);
+	comparacao= strcmp(senhadigitada,"admin");
+		
+	if(comparacao == 0)
 	
 	{
 	
-		setlocale(LC_ALL,"Portuguese"); // definindo local da linguagem
-	
-		printf("### Cartório da EBAC ### \n\n");// inicio do menu
-		printf("Escolha a opção desejada do menu\n\n");// inicio da selecao
-		printf("\t1 - Registrar nomes\n");// opcao de registrar nomes
-		printf("\t2 - Consultar nomes\n");// opcao de consultar nomes
-		printf("\t3 - Deletar nomes\n\n");// opcao de deletar nomes
-		printf("\t4 - Sair do sitema\n\n");// Opcao de sair do sistema
-		printf("opcao: ");//fim do menu
-
-		scanf("%d", &opcao);
-	
-		system("cls");// opcao de limpar a tela depois de digitar
-		
-		switch(opcao)
+		for(x=1;x=1;)
 		{
+			setlocale(LC_ALL,"Portuguese"); // definindo local da linguagem
+	
+			printf("### Cartório da EBAC ### \n\n");// inicio do menu
+			printf("Escolha a opção desejada do menu\n\n");// inicio da selecao
+			printf("\t1 - Registrar nomes\n");// opcao de registrar nomes
+			printf("\t2 - Consultar nomes\n");// opcao de consultar nomes
+			printf("\t3 - Deletar nomes\n\n");// opcao de deletar nomes
+			printf("\t4 - Sair do sitema\n\n");// Opcao de sair do sistema
+			printf("opcao: ");//fim do menu
+
+			scanf("%d", &opcao);
+	
+			system("cls");// opcao de limpar a tela depois de digitar
+		
+			switch(opcao)
+			{
 			case 1:
 			registro();
 			break;
@@ -152,15 +158,24 @@ int main()
 			
 			case 4:
 			printf("Obrigado por utilizar o sistema!");
-			return 0;
+				return 0;
 			break;
 				
 			default:
 			printf("essa opcao nao esta disponivel");
 			system("pause");
 			break;
+			system("cls");
+			}
+			
+		
 		}
-		system("cls");
+	
 	}
+	else
+		printf("Senha incorreta!");
+	return 0;
+		
+	
 }
 
